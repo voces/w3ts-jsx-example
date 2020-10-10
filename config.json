@@ -1,0 +1,10 @@
+{
+  "mapFolder": "map.w3x",
+  "minifyScript": false,
+  "outputFolder": "./dist/bin",
+  "launchArgs": [
+    "-launch",
+    "-windowmode",
+    "windowed"
+  ]
+}

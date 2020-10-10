@@ -1,0 +1,71 @@
+{
+	"compilerOptions": {
+		"outDir": ".",
+		"allowJs": true,
+		"alwaysStrict": true,
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"skipLibCheck": true,
+		"strictNullChecks": true,
+		"jsx": "react",
+		"target": "es6",
+		"lib": [
+			"es2019", "es2020"
+		],
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"rootDir": ".",
+		"baseUrl": "src",
+		"paths": {
+			"*": [
+				"../node_modules/*/src/index",
+				"../node_modules/*/lib/index",
+				"../node_modules/*/index",
+				"../node_modules/*/dist/index",
+				"../node_modules/*"
+			]
+		},
+		"plugins": [
+			{
+				"transform": "war3-transformer"
+			}
+		],
+		"types": [
+			"lua-types/5.3",
+			"@types/jest",
+			"@types/node",
+			"war3-types/core/compat",
+			"war3-types/core/common",
+			"war3-types/core/blizzard",
+			"war3-types/core/commonai",
+			"war3-types/core/polyfill",
+			"war3-types/special/w3ts",
+			"mdx-m3-viewer/src/types"
+		]
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"src/**/*.test.ts",
+		"**/test",
+		"src/tstl-jsx"
+	],
+	"tstl": {
+		"luaTarget": "5.3",
+		"noHeader": true,
+		"noImplicitSelf": true,
+		"luaBundle": "dist/tstl_output.lua",
+		"luaBundleEntry": "./src/main.tsx",
+		"luaPlugins": [
+			{
+				"name": "./src/tstl-jsx/JsxTransformer",
+				"import": "JsxTransformer"
+			},
+			// {
+			// 	"name": "./src/tstl-jsx/RequirePreload",
+			// 	"import": "RequirePreload"
+			// }
+		]
+	}
+}

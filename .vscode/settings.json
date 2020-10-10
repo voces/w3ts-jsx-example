@@ -1,0 +1,4 @@
+{
+	"eslint.enable": true,
+	"typescript.tsdk": "c:\\Users\\verit\\projects\\w3ts-jsx-example\\node_modules\\typescript\\lib"
+}

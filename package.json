@@ -1,0 +1,56 @@
+{
+  "name": "w3ts-jsx-example",
+  "version": "1.0.0",
+  "description": "",
+  "author": "verit",
+  "license": "MIT",
+  "main": "src/main.tsx",
+  "scripts": {
+    "jest": "jest",
+    "test": "ts-node scripts/test.ts",
+    "build:defs": "ts-node scripts/dev",
+    "build": "ts-node --ignore \"node_modules/(?!mdx-m3-viewer).*\" scripts/build.ts",
+    "dev": "npm-watch"
+  },
+  "dependencies": {
+    "w3ts": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/fs-extra": "^9.0.1",
+    "@types/jest": "^26.0.14",
+    "@types/node": "^14.11.5",
+    "@types/pako": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "eslint": "^7.10.0",
+    "eslint-config-verit": "^3.2.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "fs-extra": "^9.0.1",
+    "jest": "^26.5.2",
+    "lua-types": "^2.8.0",
+    "luamin": "^1.0.4",
+    "mdx-m3-viewer": "^5.0.12",
+    "npm-watch": "^0.7.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.1",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "tsutils": "^3.17.1",
+    "typescript": "^3.9.7",
+    "typescript-to-lua": "^0.35.0",
+    "war3-transformer": "^1.1.0",
+    "war3-types": "^1.0.2",
+    "war3tstlhelper": "^1.0.1",
+    "winston": "^3.3.3"
+  },
+  "watch": {
+    "build:defs": {
+      "patterns": [
+        "./maps/*"
+      ],
+      "extensions": "lua",
+      "legacyWatch": true
+    }
+  }
+}
