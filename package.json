@@ -4,6 +4,7 @@
   "description": "",
   "author": "verit",
   "license": "MIT",
+  "private": true,
   "main": "src/main.tsx",
   "scripts": {
     "jest": "jest",
@@ -13,7 +14,8 @@
     "dev": "npm-watch"
   },
   "dependencies": {
-    "w3ts": "^2.1.2"
+    "w3ts": "^2.1.2",
+    "w3ts-jsx": "^2.0.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",

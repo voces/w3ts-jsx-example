@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"outDir": ".",
-		"allowJs": true,
+		"strict": true,
+		"allowJs": false,
 		"alwaysStrict": true,
 		"noImplicitAny": true,
 		"noImplicitThis": true,
@@ -9,11 +10,8 @@
 		"strictNullChecks": true,
 		"jsx": "react",
 		"target": "es6",
-		"lib": [
-			"es2019", "es2020"
-		],
+		"lib": ["es2020"],
 		"moduleResolution": "node",
-		"module": "commonjs",
 		"rootDir": ".",
 		"baseUrl": "src",
 		"paths": {
@@ -31,6 +29,7 @@
 			}
 		],
 		"types": [
+			"lua-types/core/global",
 			"lua-types/5.3",
 			"@types/jest",
 			"@types/node",
@@ -40,32 +39,32 @@
 			"war3-types/core/commonai",
 			"war3-types/core/polyfill",
 			"war3-types/special/w3ts",
-			"mdx-m3-viewer/src/types"
+			"mdx-m3-viewer/src/types",
+			"w3ts-jsx/dist/src/types"
 		]
 	},
 	"include": [
-		"src"
+		"src",
+		"node_modules/w3ts-jsx/dist",
+		"node_modules/w3ts-jsx/dist/node_modules/basic-pragma",
 	],
 	"exclude": [
-		"src/**/*.test.ts",
-		"**/test",
-		"src/tstl-jsx"
+		"**/*.test.ts",
+		"**/*.test.tsx",
+		"**/test"
 	],
 	"tstl": {
 		"luaTarget": "5.3",
 		"noHeader": true,
+		"luaLibImport": "require",
 		"noImplicitSelf": true,
 		"luaBundle": "dist/tstl_output.lua",
 		"luaBundleEntry": "./src/main.tsx",
 		"luaPlugins": [
 			{
-				"name": "./src/tstl-jsx/JsxTransformer",
+				"name": "tstl-jsx",
 				"import": "JsxTransformer"
 			},
-			// {
-			// 	"name": "./src/tstl-jsx/RequirePreload",
-			// 	"import": "RequirePreload"
-			// }
 		]
 	}
 }
