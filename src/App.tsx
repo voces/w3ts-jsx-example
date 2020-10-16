@@ -4,38 +4,34 @@ import { Div } from "./components/Box";
 
 const Button = ({
 	onClick,
+	texFile,
 	x,
 	y,
-	texFile,
 }: {
 	onClick?: () => void;
+	texFile: string;
 	x: number;
 	y: number;
-	texFile: string;
 }) => (
-	<frame
-		typeName="BUTTON"
-		name="FaceButton"
+	<button
 		inherits="ScoreScreenTabButtonTemplate"
 		absPosition={[{ point: FRAMEPOINT_CENTER, x, y }]}
 		size={{ width: 0.05, height: 0.05 }}
 		onClick={onClick}
 	>
-		<frame
-			typeName="BACKDROP"
-			name="FaceButtonIcon"
+		<backdrop
 			position={["parent"]}
 			texture={{
 				texFile,
 			}}
 		/>
-	</frame>
+	</button>
 );
 
 export const App = (): React.Node => {
 	const [count, setCount] = React.useState(0);
 	return (
-		<frame name="app" typeName="FRAME">
+		<>
 			<Button
 				onClick={() => setCount(count + 1)}
 				x={0.5}
@@ -48,22 +44,18 @@ export const App = (): React.Node => {
 				y={0.3}
 				texFile="ReplaceableTextures\\CommandButtons\\BTNCryptFiendBurrow"
 			/>
-			<frame
-				name="iteration"
-				typeName="TEXT"
+			<text
 				text="Hello!"
 				absPosition={[{ point: FRAMEPOINT_CENTER, x: 0.4, y: 0.5 }]}
 			/>
-			<frame
-				name="container"
-				typeName="frame"
+			<container
 				absPosition={[{ point: FRAMEPOINT_CENTER, x: 0.4, y: 0.48 }]}
 				size={{ width: 0.1, height: 0.01 }}
 			>
 				{range(count, (i) => (
 					<Div typeName="TEXT" text={i.toString()} />
 				))}
-			</frame>
-		</frame>
+			</container>
+		</>
 	);
 };

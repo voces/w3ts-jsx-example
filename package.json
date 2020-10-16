@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "w3ts": "^2.1.2",
-    "w3ts-jsx": "^2.0.1"
+    "w3ts-jsx": "^2.2.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.11.5",
