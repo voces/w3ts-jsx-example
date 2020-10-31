@@ -89,6 +89,9 @@ export function compileMap(config: IProjectConfig): boolean {
 		return false;
 	}
 
+	logger.info(`Clearing "${config.mapFolder}"...`);
+	fs.emptyDirSync(`./dist/${config.mapFolder}`);
+
 	const tsLua = "./dist/tstl_output.lua";
 
 	if (fs.existsSync(tsLua)) fs.unlinkSync(tsLua);

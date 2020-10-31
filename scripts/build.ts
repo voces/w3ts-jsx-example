@@ -23,7 +23,7 @@ function main() {
 	if (!fs.existsSync(config.outputFolder)) fs.mkdirSync(config.outputFolder);
 
 	createMapFromDir(
-		`${config.outputFolder}/${config.mapFolder}`,
+		`${config.outputFolder}/2${config.mapFolder}`,
 		`./dist/${config.mapFolder}`,
 	);
 }

@@ -11,6 +11,8 @@ main = () => {
 
 	const t = CreateTimer();
 	TimerStart(t, 0.25, false, () => {
+		BlzLoadTOCFile("assets\\toc.toc");
+		BlzHideOriginFrames(true);
 		// eslint-disable-next-line react/no-deprecated
 		React.render(<App />, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0));
 	});
