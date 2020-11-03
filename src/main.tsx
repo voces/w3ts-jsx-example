@@ -13,6 +13,8 @@ main = () => {
 	TimerStart(t, 0.25, false, () => {
 		BlzLoadTOCFile("assets\\toc.toc");
 		BlzHideOriginFrames(true);
+		BlzFrameSetVisible(BlzGetFrameByName("ConsoleUIBackdrop", 0), false);
+		BlzFrameSetVisible(BlzGetFrameByName("ORIGIN_FRAME_MINIMAP", 0), true);
 		// eslint-disable-next-line react/no-deprecated
 		React.render(<App />, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0));
 	});

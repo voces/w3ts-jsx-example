@@ -1,7 +1,7 @@
 import { colorize } from "./colorize";
 import { colorizedName } from "./player";
 
-const MAX_WIDTH = 80;
+const MAX_WIDTH = 79;
 const TRAILING_COMMA = false;
 const INDENT = "  ";
 const INDENT_WIDTH = INDENT.length;

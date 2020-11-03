@@ -59,6 +59,13 @@ export function createMapFromDir(output: string, dir: string): void {
 
 	fs.writeFileSync(output, new Uint8Array(result));
 
+	logger.info("Cloning to Windows...");
+
+	fs.writeFile(
+		"/mnt/c/Users/verit/Documents/Warcraft III/Maps/dev/w3ts-jsx-example.w3x",
+		new Uint8Array(result),
+	);
+
 	logger.info("Finished!");
 }
 
