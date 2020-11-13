@@ -2,10 +2,10 @@ module.exports = {
 	extends: ["verit"],
 	rules: {
 		eqeqeq: ["error", "always", { null: "never" }],
-		"react/self-closing-comp": ["error"],
 		"@typescript-eslint/no-var-requires": ["off"],
-		"react/jsx-key": ["off"]
+		"react/jsx-key": ["off"],
 	},
+	parserOptions: { project: "tsconfig.json" },
 	settings: {
 		react: {
 			pragma: "React",

@@ -5,36 +5,40 @@ export const Minimap = ({
 	actions,
 }: {
 	actions: MinimapActionType[];
-}): React.Node => (
-	<>
-		<backdrop
-			position={[
-				{
-					point: FRAMEPOINT_BOTTOMLEFT,
-					relative: "parent",
-					relativePoint: FRAMEPOINT_BOTTOMLEFT,
-				},
-			]}
-			size={{ width: 413, height: 327 }}
-			texture={{
-				texFile: "assets/minimap.tga",
-			}}
-		/>
-		<container
-			position={[
-				{
-					point: FRAMEPOINT_TOPRIGHT,
-					relative: "previous",
-					relativePoint: FRAMEPOINT_TOPRIGHT,
-					x: -56,
-					y: -32,
-				},
-			]}
-			size={{ width: 50, height: 250 }}
-		>
-			{actions.map((action) => (
-				<MinimapAction action={action} />
-			))}
-		</container>
-	</>
-);
+}): React.Node => {
+	BlzFrameSetVisible(BlzGetOriginFrame(ORIGIN_FRAME_MINIMAP, 0), true);
+
+	return (
+		<>
+			<backdrop
+				position={[
+					{
+						point: FRAMEPOINT_BOTTOMLEFT,
+						relative: "parent",
+						relativePoint: FRAMEPOINT_BOTTOMLEFT,
+					},
+				]}
+				size={{ width: 413, height: 327 }}
+				texture={{
+					texFile: "assets/minimap.tga",
+				}}
+			/>
+			<container
+				position={[
+					{
+						point: FRAMEPOINT_TOPRIGHT,
+						relative: "previous",
+						relativePoint: FRAMEPOINT_TOPRIGHT,
+						x: -56,
+						y: -32,
+					},
+				]}
+				size={{ width: 50, height: 250 }}
+			>
+				{actions.map((action) => (
+					<MinimapAction action={action} />
+				))}
+			</container>
+		</>
+	);
+};

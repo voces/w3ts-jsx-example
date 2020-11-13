@@ -2,6 +2,7 @@ import { execSync } from "child_process";
 import * as fs from "fs-extra";
 import * as path from "path";
 import { createLogger, format, transports } from "winston";
+
 const { combine, timestamp, printf } = format;
 const luamin = require("luamin");
 
@@ -97,7 +98,7 @@ export function compileMap(config: IProjectConfig): boolean {
 	if (fs.existsSync(tsLua)) fs.unlinkSync(tsLua);
 
 	logger.info("Transpiling TypeScript to Lua...");
-	execSync("tstl -p tsconfig.json", { stdio: "inherit" });
+	execSync("tstl -p tsconfig.build.json", { stdio: "inherit" });
 
 	if (!fs.existsSync(tsLua)) {
 		logger.error(`Could not find "${tsLua}"`);

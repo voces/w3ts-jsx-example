@@ -1,0 +1,5 @@
+
+Frame "TEXT" "MediumText" {
+    DecorateFileNames,
+    FrameFont "MasterFont", 0.012, "",
+}

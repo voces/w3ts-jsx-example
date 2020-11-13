@@ -1,3 +1,9 @@
+export const hex = {
+	mana: 0xc3dbff,
+	health: 0x00ff00,
+	healthHigh: 0x00ff00,
+};
+
 const color = {
 	red: "|cffff0303",
 	blue: "|cff0042ff",

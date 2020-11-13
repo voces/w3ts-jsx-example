@@ -12,5 +12,5 @@ module.exports = {
 	testRegex: "(/src/.*\\.test)\\.tsx?$",
 	transformIgnorePatterns: [],
 	// resolver: "jest-ts-webcompat-resolver",
-	// setupFilesAfterEnv: ["./src/engine/ui/preact/tests/setup.ts"],
+	setupFilesAfterEnv: ["./src/tests/setup.ts"],
 };

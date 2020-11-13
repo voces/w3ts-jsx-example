@@ -33,6 +33,7 @@ export interface MinimapActionType {
 	modifiers?: "alt"[];
 	description: string;
 	icon: string;
+	onClick: () => void;
 }
 
 export const MinimapAction = ({
@@ -55,7 +56,7 @@ export const MinimapAction = ({
 	}
 
 	return (
-		<container
+		<button
 			position={[
 				{
 					point: FRAMEPOINT_TOPRIGHT,
@@ -65,6 +66,7 @@ export const MinimapAction = ({
 			]}
 			size={{ width: 50, height: 46 }}
 			tooltip={<Tooltip title={title} description={action.description} />}
+			onClick={action.onClick}
 		>
 			<backdrop
 				position={[
@@ -92,6 +94,6 @@ export const MinimapAction = ({
 				size={{ width: 42, height: 42 }}
 				texture={{ texFile: action.icon }}
 			/>
-		</container>
+		</button>
 	);
 };

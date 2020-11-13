@@ -1,5 +1,6 @@
 import { execFile } from "child_process";
-import { loadJsonFile, logger, compileMap } from "./utils";
+
+import { compileMap, loadJsonFile, logger } from "./utils";
 
 const gameExecutable = process.env.WAR3_PATH;
 

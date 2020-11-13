@@ -41,30 +41,9 @@
 			"war3-types/special/w3ts",
 			"mdx-m3-viewer/src/types",
 			"w3ts-jsx/dist/src/types"
-		]
+		],
+		"esModuleInterop": true
 	},
-	"include": [
-		"src",
-		"node_modules/w3ts-jsx/dist",
-		"node_modules/w3ts-jsx/dist/node_modules/basic-pragma",
-	],
-	"exclude": [
-		"**/*.test.ts",
-		"**/*.test.tsx",
-		"**/test"
-	],
-	"tstl": {
-		"luaTarget": "5.3",
-		"noHeader": true,
-		"luaLibImport": "require",
-		"noImplicitSelf": true,
-		"luaBundle": "dist/tstl_output.lua",
-		"luaBundleEntry": "./src/main.tsx",
-		"luaPlugins": [
-			{
-				"name": "tstl-jsx",
-				"import": "JsxTransformer"
-			},
-		]
-	}
+	"include": [ "src", "scripts" ],
+	"exclude": ["node_modules"]
 }

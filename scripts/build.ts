@@ -1,13 +1,14 @@
 import * as fs from "fs-extra";
-import * as path from "path";
 import War3Map from "mdx-m3-viewer/src/parsers/w3x/map";
+import * as path from "path";
+
 import {
 	compileMap,
 	getFilesInDirectory,
+	IProjectConfig,
 	loadJsonFile,
 	logger,
 	toArrayBuffer,
-	IProjectConfig,
 } from "./utils";
 
 function main() {
