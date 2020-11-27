@@ -30,7 +30,6 @@ const getPrimaryIndicies = (): [number, number] => {
 	const children = BlzFrameGetChildrenCount(groupButtonContainer);
 	for (let i = 0; i < children; i++) {
 		const buttonContainer = BlzFrameGetChild(groupButtonContainer, i);
-		const buttonBackground = BlzFrameGetChild(buttonContainer, 0);
 		const button = BlzFrameGetChild(buttonContainer, 1);
 
 		// This is pretty hacky, but it works
@@ -39,15 +38,13 @@ const getPrimaryIndicies = (): [number, number] => {
 		// First primary unit
 		if (isPrimary && indexStart == null) indexStart = i;
 
-		print();
-
 		// First non-primary unit, given a primary unit has been found
 		if (!isPrimary && indexStart != null && indexEnd == null) indexEnd = i;
 	}
 
 	if (indexStart != null) {
 		if (indexEnd != null) return [indexStart, indexEnd];
-		return [indexStart, indexStart + 1];
+		return [indexStart, 12];
 	}
 
 	return [0, 1];
@@ -125,6 +122,9 @@ export const useSelectedUnits = (): [unit[], unit[]] => {
 		undefined,
 		onSelectionChange,
 	);
+	useTriggerPlayerKeyEvent(OSKEY_TAB, 1, undefined, onSelectionChange);
+	useTriggerPlayerKeyEvent(OSKEY_TAB, 2, undefined, onSelectionChange);
+	useTriggerPlayerKeyEvent(OSKEY_TAB, 3, undefined, onSelectionChange);
 
 	return [selectedUnits, primaryUnits];
 };

@@ -72,7 +72,7 @@ export const Tooltip = ({
 	position = {
 		point: "bottomright",
 		x: 16,
-		y: 256,
+		y: 300,
 	},
 }: {
 	title: string;
@@ -85,16 +85,16 @@ export const Tooltip = ({
 }): React.Node => {
 	const flowDown = TEXT_POINTS.includes(position.point) || !description;
 
+	const absPosition = [
+		{
+			point: cornerToFramepoint[position.point],
+			x: xRelative(position.x ?? 0, position.point),
+			y: yRelative(position.y ?? 0, position.point),
+		},
+	];
+
 	const titleProps = flowDown
-		? {
-				absPosition: [
-					{
-						point: cornerToFramepoint[position.point],
-						x: xRelative(position.x ?? 0, position.point),
-						y: yRelative(position.y ?? 0, position.point),
-					},
-				],
-		  }
+		? { absPosition }
 		: {
 				position: [
 					{
@@ -117,15 +117,7 @@ export const Tooltip = ({
 					},
 				],
 		  }
-		: {
-				absPosition: [
-					{
-						point: cornerToFramepoint[position.point],
-						x: xRelative(position.x ?? 0, position.point),
-						y: yRelative(position.y ?? 0, position.point),
-					},
-				],
-		  };
+		: { absPosition };
 
 	const titleFrame = (
 		<text size={{ width: 400 }} text={title} {...titleProps} />

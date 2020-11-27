@@ -1,5 +1,5 @@
-import { Tooltip } from "../Tooltip";
 import * as React from "../../../node_modules/w3ts-jsx/dist/src/index";
+import { Tooltip } from "../Tooltip";
 
 export interface MinimapActionType {
 	name: string;

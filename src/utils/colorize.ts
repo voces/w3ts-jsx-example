@@ -39,6 +39,7 @@ const color = {
 	number: "|cffdcdc8b",
 	boolean: "|cff569cd6",
 	white: "|cffffffff",
+	handle: "|cff7ebff1",
 };
 
 export type Color = keyof typeof color;

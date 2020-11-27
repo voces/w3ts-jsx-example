@@ -1,11 +1,14 @@
-import { useInterval } from "../../hooks/useInterval";
 import * as React from "../../../node_modules/w3ts-jsx/dist/src/index";
-import { MediumText } from "../Text";
+import { useInterval } from "../../hooks/useInterval";
 import { hex } from "../../utils/colorize";
+import { MediumText } from "../Text";
 
-export const Mana = ({ unit }: { unit: unit }): React.Node => {
+export const Mana = ({
+	unit,
+	...rest
+}: TextProps & { unit: unit }): React.Node => {
 	const forceUpdate = React.useForceUpdate();
-	// useInterval(0.5, () => forceUpdate());
+	useInterval(0.5, () => forceUpdate());
 
 	const mana = GetUnitState(unit, UNIT_STATE_MANA);
 	const maxMana = BlzGetUnitMaxMana(unit);
@@ -30,6 +33,7 @@ export const Mana = ({ unit }: { unit: unit }): React.Node => {
 					x: 10,
 				},
 			]}
+			{...rest}
 		/>
 	);
 };

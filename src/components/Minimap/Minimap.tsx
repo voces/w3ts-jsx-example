@@ -1,4 +1,5 @@
 import * as React from "../../../node_modules/w3ts-jsx/dist/src/index";
+import { BlackBackground } from "../BlackBackground";
 import { MinimapAction, MinimapActionType } from "./MinimapAction";
 
 export const Minimap = ({
@@ -9,16 +10,19 @@ export const Minimap = ({
 	BlzFrameSetVisible(BlzGetOriginFrame(ORIGIN_FRAME_MINIMAP, 0), true);
 
 	return (
-		<>
+		<container
+			position={[
+				{
+					point: FRAMEPOINT_BOTTOMLEFT,
+					relative: "parent",
+					relativePoint: FRAMEPOINT_BOTTOMLEFT,
+				},
+			]}
+			size={{ width: 413, height: 327 }}
+		>
+			<BlackBackground padding={{ horizontal: 16, top: 32 }} />
 			<backdrop
-				position={[
-					{
-						point: FRAMEPOINT_BOTTOMLEFT,
-						relative: "parent",
-						relativePoint: FRAMEPOINT_BOTTOMLEFT,
-					},
-				]}
-				size={{ width: 413, height: 327 }}
+				position={["parent"]}
 				texture={{
 					texFile: "assets/minimap.tga",
 				}}
@@ -39,6 +43,6 @@ export const Minimap = ({
 					<MinimapAction action={action} />
 				))}
 			</container>
-		</>
+		</container>
 	);
 };

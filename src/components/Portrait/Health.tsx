@@ -5,7 +5,7 @@ import { MediumText } from "../Text";
 /**
  * Returns a hex color code between red (0), yellow (0.5), and green (1).
  */
-const tweenHealthColor = (percent: number): number => {
+export const tweenHealthColor = (percent: number): number => {
 	let r = 0;
 	let g = 0;
 	const b = 0;
@@ -46,5 +46,3 @@ export const Health = ({ unit }: { unit: unit }): React.Node => {
 		/>
 	);
 };
-
-export const test = { tweenHealthColor };

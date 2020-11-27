@@ -19,5 +19,14 @@ main = () => {
 		BlzHideOriginFrames(true);
 		BlzFrameSetVisible(BlzGetFrameByName("ConsoleUIBackdrop", 0), false);
 		React.render(<App />, BlzGetOriginFrame(ORIGIN_FRAME_GAME_UI, 0));
+
+		for (let i = 0; i < 20; i++)
+			CreateUnit(
+				Player(0),
+				FourCC("hfoo"),
+				(Math.random() - 0.6) * 1524,
+				(Math.random() - 0.6) * 1524,
+				270,
+			);
 	});
 };

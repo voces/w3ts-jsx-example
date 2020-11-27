@@ -1,6 +1,4 @@
-import { test } from "./Health";
-
-const { tweenHealthColor } = test;
+import { tweenHealthColor } from "./Health";
 
 describe("tweenHealthColor", () => {
 	it("green", () => {

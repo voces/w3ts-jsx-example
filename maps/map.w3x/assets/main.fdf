@@ -3,3 +3,8 @@ Frame "TEXT" "MediumText" {
     DecorateFileNames,
     FrameFont "MasterFont", 0.012, "",
 }
+
+Frame "SIMPLESTATUSBAR" "SimpleBar" {
+   Width 0.07,
+   Height 0.012,
+}

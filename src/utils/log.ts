@@ -1,7 +1,7 @@
 import { colorize } from "./colorize";
 import { colorizedName } from "./player";
 
-const MAX_WIDTH = 79;
+const MAX_WIDTH = 78;
 const TRAILING_COMMA = false;
 const INDENT = "  ";
 const INDENT_WIDTH = INDENT.length;
@@ -25,14 +25,14 @@ const userdataType = (userdata: Record<string, any>): string => {
 	return typeString.slice(0, typeString.indexOf(":"));
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/explicit-module-boundary-types
 export const termToString = (v: any, color = true, level = 0): string => {
 	if (typeof v === "string") return color ? colorize.string(`"${v}"`) : v;
 	if (typeof v === "number") return color ? colorize.number(v) : v.toString();
 	if (typeof v === "boolean")
 		return color ? colorize.boolean(v) : v.toString();
 	if (typeof v === "function")
-		return color ? colorize.number("[function]") : "[function]";
+		return color ? colorize.number("<function>") : "<function>";
 	if (v == null) return color ? colorize.boolean("null") : "null";
 
 	if (isArray(v)) {
@@ -151,11 +151,18 @@ export const termToString = (v: any, color = true, level = 0): string => {
 				/* do nothing */
 			}
 
-			return `[${type}(${handleId === -1 ? "not-handle" : handleId})]`;
+			const str = `<${type}(${
+				handleId === -1 ? "not-handle" : handleId
+			})>`;
+			return color ? colorize.handle(str) : str;
 		}
 	}
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const log = (...args: Array<any>): void =>
-	BJDebugMsg(args.map((v) => termToString(v)).join(" "));
+	args
+		.map((v) => termToString(v))
+		.join(" ")
+		.split("\n")
+		.forEach((line) => BJDebugMsg(line));

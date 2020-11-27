@@ -1,4 +1,5 @@
 import * as React from "../../../node_modules/w3ts-jsx/dist/src/index";
+import { BlackBackground } from "../BlackBackground";
 import { Health } from "./Health";
 import { Mana } from "./Mana";
 
@@ -10,13 +11,10 @@ export const Portrait = ({
 	React.useEffect(() => {
 		// There's no way to get an arbitrary unit's model (without
 		// preprocessing), so we'll just reuse the frame. :(
-		BlzFrameSetVisible(BlzGetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0), true);
+		const portrait = BlzGetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0);
+		BlzFrameSetVisible(portrait, true);
 
-		return () =>
-			BlzFrameSetVisible(
-				BlzGetOriginFrame(ORIGIN_FRAME_PORTRAIT, 0),
-				false,
-			);
+		return () => BlzFrameSetVisible(portrait, false);
 	});
 
 	return (
@@ -31,11 +29,13 @@ export const Portrait = ({
 			]}
 			size={{ width: 221, height: 277 }}
 		>
+			<BlackBackground padding={{ horizontal: 8, top: 220 }} />
 			<backdrop
 				position={["parent"]}
 				texture={{
 					texFile: "assets/portrait.tga",
 				}}
+				level={2}
 			/>
 			{primaryUnit && (
 				<>
